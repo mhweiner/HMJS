@@ -1,23 +1,12 @@
 // HairyMustache.js
-// Useful templating utility and jQuery plugin for Mustache.js. Requires MustacheJS and jQuery >= 1.8
+// Useful templating utility and jQuery plugin for Mustache.js. Requires ArriveJS, MustacheJS and jQuery >= 1.8
 
 var HM = (function($, M){
 
 	"use strict";
 
-	var templates = {};
-
-	/**
-	 * Fetches JSON from a URL, and adds any templates returned.
-	 * @param url
-	 * @param callback
-	 */
-	function fetch(url, callback){
-		$.getJSON(url, function (templates) {
-			add(templates);
-			callback.call(this);
-		});
-	}
+	var templates = {},
+		viewmodels = {};
 
 	/**
 	 * Adds (or replaces) one or more templates.
@@ -37,85 +26,81 @@ var HM = (function($, M){
 	 * Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
 	 * any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewHelper first,
 	 * and then callback.
+	 * @param $destination //optional if using insertionMethod
 	 * @param template_name
-	 * @param $destination
 	 * @param data
-	 * @param callback
-	 * @param target_element_id
-	 * @param insertion_method
-	 * @param target_element_class //you can specify class to listen for instead of target_element_id
+	 * @param onReady
+	 * @param insertionMethod //called with HTML
 	 */
-	function insert(template_name, $destination, data, callback, target_element_id, insertion_method, target_element_class){
+	function insert($destination, template_name, data, onReady, insertionMethod){
 
 		//make sure template is valid
 		if(!template_name || !exists(template_name)){
 			throw "HM: Error: Template '" + template_name + "' does not exist! You must HM.add() it first.";
 		}
 
-		callback = callback || function(){};
+		onReady = onReady || function(){};
 		data = data || {};
-		target_element_id = target_element_id || template_name; //target defaults to template name
-		var arrived = false;
+
+		//create a unique template id
+		data.tplid = 'a' + Math.floor(Math.random()*10000);
+
+		var arrived = false,
+			selector = '[data-tplid="' + data.tplid + '"]',
+			$document = $(document);
+
+		function domNodeInserted($scope){
+			if(viewmodels[template_name] && typeof viewmodels[template_name] == 'function'){
+				onReady.call($scope, data, new viewmodels[template_name](data));
+			} else {
+				onReady.call($scope, data);
+			}
+		}
 
 		//subscribe to insert node event
-		//if MutationObserver (DOM level4) is supported, use that. or fall back to DOM Level 3 mutation events
 		if(window.MutationObserver){
-			var selector = target_element_class ? '.' + target_element_class : '#' + target_element_id;
-			selector += ',.a' + Math.floor(Math.random()*100); //unique namespace
-			$(document).arrive(selector, function() {
+
+			$document.arrive(selector, function() {
+
 				if(arrived) return;
 				arrived = true;
 
 				//unsubscribe
-				$(document).unbindArrive(selector);
+				$document.unbindArrive(selector);
 
-				var $scope = $(this);
+				domNodeInserted($(this));
 
-				//see if there is a viewhelper defined
-				if(HM.ViewHelper && typeof HM.ViewHelper[template_name] === 'function'){
-					HM.ViewHelper[template_name].call($scope, data);
-				}
-
-				//call callback
-				callback.call($scope, data);
 			});
+
 		} else {
-			var namespace = '.a' + Math.floor(Math.random()*100);
-			var event = 'DOMNodeInserted' + namespace; //unique namespace
+
+			//fall back to DOM Level 3 mutation events
+
+			var event = 'DOMNodeInserted' + data.tplid; //unique namespace
 			$(document).on(event, function(e) {
-				if (e.target.id == target_element_id || (target_element_class && $(e.target).hasClass(target_element_class))) {
+				if (e.target.dataset == data.tplid) {
 
 					if(arrived) return;
 					arrived = true;
 
-					//unsubscribe
-					$(document).off(event);
-
-					//set up the scope as the node inserted
-					var $scope = $('#' + target_element_id);
-
-					//see if there is a viewhelper defined
-					if(HM.ViewHelper && typeof HM.ViewHelper[template_name] === 'function'){
-						HM.ViewHelper[template_name].call($scope, data);
-					}
-
-					//call callback
-					callback.call($scope, data);
+					domNodeInserted($(e.target));
 				}
 			});
 		}
 
+		//render Mustache template
+		var html =  M.render(templates[template_name], data, templates);
 
 		//do insertion
-		if(typeof insertion_method === 'function'){
+		if(typeof insertionMethod === 'function'){
 			//do it their way
-			insertion_method.call(undefined, M.render(templates[template_name], data, templates));
+			insertionMethod.call(undefined, html);
 		} else {
 			//default: just replace contents
 			if(!($destination instanceof $) || !$destination.length){
 				throw('HM: Error: $destination must be a jQuery object and must not be empty.');
 			}
-			$destination.html(M.render(templates[template_name], data, templates));
+			$destination.html(html);
 		}
 	}
 
@@ -179,36 +164,65 @@ var HM = (function($, M){
 
 	//---set up jQuery plugins---//
 
-	$.fn.insertView = function(template_name, data, callback, target_element_id, target_element_class){
-		insert(template_name, $(this), data, callback, target_element_id, null, target_element_class);
+	/**
+	 * Replaces contents.
+	 * @param template_name
+	 * @param data
+	 * @param onReady
+	 */
+	$.fn.insertView = function(template_name, data, onReady){
+		insert($(this), template_name, data, onReady);
 	};
-	$.fn.appendView = function(template_name, data, callback, target_element_id, target_element_class){
-		var $this = $(this);
-		insert(template_name, null, data, callback, target_element_id, function(html){
-			$this.append(html);
-		}, target_element_class);
+
+	/**
+	 * Appends contents.
+	 * @param template_name
+	 * @param data
+	 * @param onReady
+	 */
+	$.fn.appendView = function(template_name, data, onReady){
+		insert(null, template_name, data, onReady, function(html){
+			$(this).append(html);
+		});
 	};
-	$.fn.prependView = function(template_name, data, callback, target_element_id, target_element_class){
-		var $this = $(this);
-		insert(template_name, null, data, callback, target_element_id, function(html){
-			$this.prepend(html);
-		}, target_element_class);
+
+	/**
+	 * Prepends contents.
+	 * @param template_name
+	 * @param data
+	 * @param onReady
+	 */
+	$.fn.prependView = function(template_name, data, onReady){
+		insert(null, template_name, data, onReady, function(html){
+			$(this).prepend(html);
+		});
 	};
-	$.fn.afterView = function(template_name, data, callback, target_element_id, target_element_class){
-		var $this = $(this);
-		insert(template_name, null, data, callback, target_element_id, function(html){
-			$this.after(html);
-		}, target_element_class);
+
+	/**
+	 * Inserts after selected element.
+	 * @param template_name
+	 * @param data
+	 * @param onReady
+	 */
+	$.fn.afterView = function(template_name, data, onReady){
+		insert(null, template_name, data, onReady, function(html){
+			$(this).after(html);
+		});
 	};
-	$.fn.beforeView = function(template_name, data, callback, target_element_id, target_element_class){
-		var $this = $(this);
-		insert(template_name, null, data, callback, target_element_id, function(html){
-			$this.before(html);
-		}, target_element_class);
+
+	/**
+	 * Inserts before selected element.
+	 * @param template_name
+	 * @param data
+	 * @param onReady
+	 */
+	$.fn.beforeView = function(template_name, data, onReady){
+		insert(null, template_name, data, onReady, function(html){
+			$(this).before(html);
+		});
 	};
 
 	return {
-		fetch: fetch,
 		add: add,
 		insert: insert,
 		render: render,

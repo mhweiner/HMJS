@@ -43,7 +43,7 @@ var HM = (function($, M){
 		data = data || {};
 
 		//create a unique template id
-		data.tplid = 'a' + Math.floor(Math.random()*10000);
+		data.tplid = 'a' + Math.floor(Math.random()*10000000);
 
 		var arrived = false,
 			selector = '[data-tplid="' + data.tplid + '"]',
@@ -51,7 +51,7 @@ var HM = (function($, M){
 
 		function domNodeInserted($scope){
 			if(viewmodels[template_name] && typeof viewmodels[template_name] == 'function'){
-				onReady.call($scope, data, new viewmodels[template_name](data));
+				onReady.call($scope, data, new viewmodels[template_name]($scope, data));
 			} else {
 				onReady.call($scope, data);
 			}
@@ -181,8 +181,9 @@ var HM = (function($, M){
 	 * @param onReady
 	 */
 	$.fn.appendView = function(template_name, data, onReady){
+		var $this = $(this);
 		insert(null, template_name, data, onReady, function(html){
-			$(this).append(html);
+			$this.append(html);
 		});
 	};
 
@@ -193,8 +194,9 @@ var HM = (function($, M){
 	 * @param onReady
 	 */
 	$.fn.prependView = function(template_name, data, onReady){
+		var $this = $(this);
 		insert(null, template_name, data, onReady, function(html){
-			$(this).prepend(html);
+			$this.prepend(html);
 		});
 	};
 
@@ -205,8 +207,9 @@ var HM = (function($, M){
 	 * @param onReady
 	 */
 	$.fn.afterView = function(template_name, data, onReady){
+		var $this = $(this);
 		insert(null, template_name, data, onReady, function(html){
-			$(this).after(html);
+			$this.after(html);
 		});
 	};
 
@@ -217,8 +220,9 @@ var HM = (function($, M){
 	 * @param onReady
 	 */
 	$.fn.beforeView = function(template_name, data, onReady){
+		var $this = $(this);
 		insert(null, template_name, data, onReady, function(html){
-			$(this).before(html);
+			$this.before(html);
 		});
 	};
 
@@ -229,7 +233,8 @@ var HM = (function($, M){
 		grab: grab,
 		clear: clear,
 		getTemplates: getTemplates,
-		exists: exists
+		exists: exists,
+		viewmodels: viewmodels
 	};
 
 })(jQuery, Mustache);

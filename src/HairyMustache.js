@@ -29,7 +29,7 @@ var HM = (function($, M){
 	 * @param $destination //optional if using insertionMethod
 	 * @param template_name
 	 * @param data
-	 * @param onReady
+	 * @param onReady //callback function, called with [data, [viewModel]], within the context of root DOM element (jQuery selector)
 	 * @param insertionMethod //called with HTML
 	 */
 	function insert($destination, template_name, data, onReady, insertionMethod){

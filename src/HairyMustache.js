@@ -10,10 +10,12 @@ var HM = (function($, M){
 
 	/**
 	 * Adds (or replaces) one or more templates.
+	 * @param {object} input_templates
+	 * @param {boolean=} replace
 	 */
-	function add(input_templates, override){
+	function add(input_templates, replace){
 		$.each(input_templates, function(name,mhtml){
-			if(exists(name) && !override){
+			if(exists(name) && !replace){
 				//already exists!
 				throw('HM: Error: Template ' + name + ' already exists.');
 			}
@@ -26,11 +28,11 @@ var HM = (function($, M){
 	 * Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
 	 * any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewHelper first,
 	 * and then callback.
-	 * @param $destination //optional if using insertionMethod
-	 * @param template_name
-	 * @param data
-	 * @param onReady //callback function, called with [data, [viewModel]], within the context of root DOM element (jQuery selector)
-	 * @param insertionMethod //called with HTML
+	 * @param {object=} $destination //optional if using insertionMethod
+	 * @param {string} template_name
+	 * @param {object=} data
+	 * @param {function=} onReady //callback function, called with [data, [viewModel]], within the context of root DOM element (jQuery selector)
+	 * @param {function=} insertionMethod //called with HTML
 	 */
 	function insert($destination, template_name, data, onReady, insertionMethod){
 
@@ -166,9 +168,9 @@ var HM = (function($, M){
 
 	/**
 	 * Replaces contents.
-	 * @param template_name
-	 * @param data
-	 * @param onReady
+	 * @param {string} template_name
+	 * @param {object=} data
+	 * @param {function=} onReady
 	 */
 	$.fn.insertView = function(template_name, data, onReady){
 		insert($(this), template_name, data, onReady);
@@ -176,9 +178,9 @@ var HM = (function($, M){
 
 	/**
 	 * Appends contents.
-	 * @param template_name
-	 * @param data
-	 * @param onReady
+	 * @param {string} template_name
+	 * @param {object=} data
+	 * @param {function=} onReady
 	 */
 	$.fn.appendView = function(template_name, data, onReady){
 		var $this = $(this);
@@ -189,9 +191,9 @@ var HM = (function($, M){
 
 	/**
 	 * Prepends contents.
-	 * @param template_name
-	 * @param data
-	 * @param onReady
+	 * @param {string} template_name
+	 * @param {object=} data
+	 * @param {function=} onReady
 	 */
 	$.fn.prependView = function(template_name, data, onReady){
 		var $this = $(this);
@@ -202,9 +204,9 @@ var HM = (function($, M){
 
 	/**
 	 * Inserts after selected element.
-	 * @param template_name
-	 * @param data
-	 * @param onReady
+	 * @param {string} template_name
+	 * @param {object=} data
+	 * @param {function=} onReady
 	 */
 	$.fn.afterView = function(template_name, data, onReady){
 		var $this = $(this);
@@ -215,9 +217,9 @@ var HM = (function($, M){
 
 	/**
 	 * Inserts before selected element.
-	 * @param template_name
-	 * @param data
-	 * @param onReady
+	 * @param {string} template_name
+	 * @param {object=} data
+	 * @param {function=} onReady
 	 */
 	$.fn.beforeView = function(template_name, data, onReady){
 		var $this = $(this);

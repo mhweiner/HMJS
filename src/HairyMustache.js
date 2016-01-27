@@ -234,7 +234,7 @@ var HM = (function($, M){
 		clear: clear,
 		getTemplates: getTemplates,
 		exists: exists,
-		viewmodels: viewmodels
+		setViewModels: function(vm){viewmodels = vm;}
 	};
 
 })(jQuery, Mustache);

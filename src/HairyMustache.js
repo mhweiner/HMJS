@@ -80,7 +80,7 @@ var HM = (function($, M){
 
 			var event = 'DOMNodeInserted' + data.tplid; //unique namespace
 			$(document).on(event, function(e) {
-				if (e.target.dataset == data.tplid) {
+				if (e.target.dataset.tplid == data.tplid) {
 
 					if(arrived) return;
 					arrived = true;

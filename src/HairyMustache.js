@@ -1,7 +1,7 @@
 // HairyMustache.js
 // Useful templating utility and jQuery plugin for Mustache.js. Requires ArriveJS, MustacheJS and jQuery >= 1.8
 
-var HM = (function($, M){
+window.HM = (function($, M){
 
 	"use strict";
 
@@ -36,6 +36,8 @@ var HM = (function($, M){
 	 */
 	function insert($destination, template_name, data, onReady, insertionMethod){
 
+		var $document = $(document);
+
 		//make sure template is valid
 		if(!template_name || !exists(template_name)){
 			throw "HM: Error: Template '" + template_name + "' does not exist! You must HM.add() it first.";
@@ -47,10 +49,6 @@ var HM = (function($, M){
 		//create a unique template id
 		data.tplid = 'a' + Math.floor(Math.random()*10000000);
 
-		var arrived = false,
-			selector = '[data-tplid="' + data.tplid + '"]',
-			$document = $(document);
-
 		function domNodeInserted($scope){
 			if(viewmodels[template_name] && typeof viewmodels[template_name] == 'function'){
 				onReady.call($scope, data, new viewmodels[template_name]($scope, data));
@@ -59,8 +57,12 @@ var HM = (function($, M){
 			}
 		}
 
-		//subscribe to insert node event
 		if(window.MutationObserver){
+
+			//Use HTML5 modern method to detect node inserted
+
+			var arrived = false,
+				selector = '[data-tplid="' + data.tplid + '"]';
 
 			$document.arrive(selector, function() {
 
@@ -76,16 +78,14 @@ var HM = (function($, M){
 
 		} else {
 
-			//fall back to DOM Level 3 mutation events
+			//fallback to DOMNodeInserted event
 
-			var event = 'DOMNodeInserted' + data.tplid; //unique namespace
-			$(document).on(event, function(e) {
-				if (e.target.dataset.tplid == data.tplid) {
-
-					if(arrived) return;
-					arrived = true;
-
-					domNodeInserted($(e.target));
+			var evt = 'DOMNodeInserted.' + data.tplid; //unique namespace
+			$document.on(evt, function(e) {
+				var $el = $(e.target);
+				if($el.data('tplid') == data.tplid){
+					$document.off(evt);
+					domNodeInserted($el);
 				}
 			});
 		}

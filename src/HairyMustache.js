@@ -117,30 +117,6 @@ window.HM = (function($, M){
 	}
 
 	/**
-	 * Clears the templates, and adds to HM any templates stored in script tags with type of text/html or x-tmpl-mustache.
-	 */
-	function grab(){
-		clear();
-		var i,
-			l,
-			scripts = document.getElementsByTagName('script'),
-			script,
-			trash = [];
-		for (i = 0, l = scripts.length; i < l; i++) {
-			script = scripts[i];
-			if (script && script.innerHTML && script.id && (script.type === "text/html" || script.type === "x-tmpl-mustache")) {
-				var obj = {};
-				obj[script.id] = script.innerHTML.replace(/^\s+/, '').replace(/\s+$/, '');
-				add(obj);
-				trash.unshift(script);
-			}
-		}
-		for (i = 0, l = trash.length; i < l; i++) {
-			trash[i].parentNode.removeChild(trash[i]);
-		}
-	}
-
-	/**
 	 * Clears the stored templates.
 	 */
 	function clear(){
@@ -232,7 +208,6 @@ window.HM = (function($, M){
 		add: add,
 		insert: insert,
 		render: render,
-		grab: grab,
 		clear: clear,
 		getTemplates: getTemplates,
 		exists: exists,

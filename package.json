@@ -1,6 +1,8 @@
 {
-  "name": "HairyMustache",
+  "name": "HM",
   "dependencies": {
+    "mustache": "*",
+    "arrive": "*"
   },
   "scripts": {
   }

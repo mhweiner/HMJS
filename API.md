@@ -1,5 +1,8 @@
 # HMJS Usage & API
 
+**Tip**: If there is any confusion, it is highly encouraged that you read the source code, src/hmjs.js. It's written
+in a way that's easy to read, and has javadoc style function comments.
+
 ## HM Object
 
 ``HM.add(templates [object], replace [bool] (optional))``

@@ -7,7 +7,7 @@ HM is a JS view component and jQuery plugin for Mustache. Issues callbacks withi
 ```HTML
 <div data-tplid="{{tplid}}">
 Hello, <span>{{name}}</span>!
-<button>Leave</button>
+<button>Toggle</button>
 </div>
 ```
 *welcome.js*
@@ -21,7 +21,7 @@ window.welcome = function($scope, data){
         $scope.html((status ? 'Hello ' : 'Bye ') + data.name + '!');
     }
     
-    $scope.on('click','button', toggle);
+    $scope.on('click', 'button', toggle);
     
     /* return api */
     return {
@@ -32,11 +32,9 @@ window.welcome = function($scope, data){
 ```
 *app.js*
 ```JS
-var welcome;
-
 $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
-    welcome = vm;
-    welcome.toggle(); //call 'toggle' directly from welcome api
+    vm.toggle(); //call 'toggle' directly from welcome api
+                 //feel free to save vm to local variable to use later!
 });
 ```
 

@@ -8,7 +8,7 @@
 
 ``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
 
-Replaces contents of selected objects with rendered template.
+Replaces contents of selected element with rendered template. Similar to <code>$.html()</code>. 
 
 Examples:
 
@@ -20,6 +20,30 @@ $('body').insertView('welcome', {name: "John"}, function(data,vm){
     console.log(data); // the same name param. outputs: {name: "John"}
 });
 ```
+
+### .appendView()
+
+``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+
+Appends rendered template to the selected element. Similar to <code>$.append()</code>. Examples and signature exactly the same as <code>.insertView()</code>
+
+### .prependView()
+
+``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+
+Prepends rendered template to the selected element. Similar to <code>$.prepend()</code>. Examples and signature exactly the same as <code>.insertView()</code>
+
+### .beforeView()
+
+``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+
+Inserts rendered template before the selected element. Similar to <code>$.before()</code>. Examples and signature exactly the same as <code>.insertView()</code>
+
+### .afterView()
+
+``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+
+Inserts rendered template after the selected element. Similar to <code>$.after()</code>. Examples and signature exactly the same as <code>.insertView()</code>
 
 ## HM Object
 
@@ -90,34 +114,3 @@ any available ViewHelper, within the lexical scope of the template and with data
 and then callback.
 
 See source code for example usage.
-
-### jQuery functions
-
-These are meant to be run on a jQuery set of matched elements. For example, $('body').appendView('test');
-
-<table width="100%">
-<tr>
-    <th>Method</th>
-    <th>Description</th>
-</tr>
-<tr>
-    <td><code>.insertView()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>.prependView()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>.appendView()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>.beforeView()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>.afterView()</code></td>
-    <td></td>
-</tr>
-</table>

@@ -29,19 +29,19 @@ Appends rendered template to the selected element. Similar to <code>$.append()</
 
 ### .prependView()
 
-``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+``.prependView(template_name [string], data [object](optional), onReady [function](optional))``
 
 Prepends rendered template to the selected element. Similar to <code>$.prepend()</code>. Examples and signature exactly the same as <code>.insertView()</code>
 
 ### .beforeView()
 
-``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+``.beforeView(template_name [string], data [object](optional), onReady [function](optional))``
 
 Inserts rendered template before the selected element. Similar to <code>$.before()</code>. Examples and signature exactly the same as <code>.insertView()</code>
 
 ### .afterView()
 
-``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
+``.afterView(template_name [string], data [object](optional), onReady [function](optional))``
 
 Inserts rendered template after the selected element. Similar to <code>$.after()</code>. Examples and signature exactly the same as <code>.insertView()</code>
 

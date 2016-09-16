@@ -3,14 +3,14 @@ HM is a JS view component and jQuery plugin for Mustache. Issues callbacks withi
 
 ## Example Usage:
 
-welcome.mustache
+*welcome.mustache*
 ```HTML
 <div data-tplid="{{tplid}}">
 Hello, <span>{{name}}</span>
 <button>Leave</button>
 </div>
 ```
-welcome.js
+*welcome.js*
 ```JS
 window.welcome = function($scope, data){
 
@@ -29,9 +29,9 @@ window.welcome = function($scope, data){
    
 };
 ```
-app.js
+*app.js*
 ```JS
-$('body').insertView('welcome', 'Dave');
+$('body').insertView('welcome', {name: 'Dave'});
 ```
 
 

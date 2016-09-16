@@ -12,33 +12,6 @@
     Adds (or replaces) one or more templates. Templates are parsed for performance.
     </td>
 </tr>
-<tr>
-    <td><code>HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))</code></td>
-    <td>You probably will never use this function, as it is for advanced usage only. It is recommended you use
-    the jQuery helper functions instead (see below). Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
-        any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewModel first,
-        and then callback.</td>
-</tr>
-<tr>
-    <td><code>HM.render()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.clear()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.getTemplates()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.exists()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.setViewModels()</code></td>
-    <td></td>
-</tr>
 </table>
 
 <table width="100%">

@@ -1,7 +1,6 @@
 # HMJS Usage & API
 
-**Tip**: If there is any confusion, it is highly encouraged that you read the source code, src/hmjs.js. It's written
-in a way that's easy to read, and has javadoc style function comments.
+**Tip**: If there is any confusion, read the source code, src/hmjs.js. It's easy to read, and has javadoc style function comments! :) Yay!
 
 ## HM Object
 

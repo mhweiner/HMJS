@@ -68,7 +68,25 @@ Just grab dist/hmjs.min.js. It includes all dependencies (Mustache, Arrive) **ex
 ## Wait, what is a viewmodel?
 
 There are many definitions for [viewmodel](https://www.infoq.com/articles/View-Model-Definition). For our purposes,
-a **_viewmodel_** is a wrapper or decorator that contains most, if not all of the javascript logic required for the view.
-This could mean event binding, data binding, callbacks, template manipulation, etc. HMJS does not have any opinions
-on how this is implemented, and it is left to you. HMJS is meant to be used in micro-library or home-grown frameworks, or
-as a component within another framework. Feel free to bring your own data-binding library.
+a **_viewmodel_** is a wrapper or decorator that ideally contains all of the javascript logic required for the view/component.
+This could be event binding, data binding, callbacks, template manipulation, etc. HMJS does not have any opinions
+on how this is implemented, and it is left to you. Feel free to bring your own data-binding library.
+
+## Why are we doing this? Who is this for?
+
+HMJS was originally written to be used as a way to organize and encapsulate view components in a HTML5 mobile app.
+Performance and small filesize were key goals. Mustache is also ubiquitous, [well documented](https://mustache.github.io/mustache.5.html), simple, 'logicless', 
+[highly portable](https://mustache.github.io/) (it's available in many languages), and one of the fastest JS template engines.
+Mustache templates are usually clean and easy-to-read, yet highly flexible (see lambda functions).
+
+## License
+
+Copyright (c) 2016 Marc Weiner (mhweiner234@gmail.com). All rights reserved.
+
+HMJS is available under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

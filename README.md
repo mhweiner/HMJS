@@ -32,10 +32,8 @@ window.welcome = function($scope, data){
 ```
 *app.js*
 ```JS
-var welcome;
-$('body').insertView('welcome', {name: 'Dave'}, function($scope, data){
-  welcome = $scope;
-  welcome.toggle();
+$('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
+  vm.toggle(); //manually call toggle directly
 });
 ```
 

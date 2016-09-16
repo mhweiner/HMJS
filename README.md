@@ -1,16 +1,16 @@
 # HM
 HM is a JS view component and jQuery plugin for Mustache. Issues callbacks within new scope, so you can encapsulate your view logic, and have it run when it's ready. Each view/component can have its own API, so you can keep your components modular and completely isolated. At only 1.2kb gzipped, it's much more lightweight than any other component/templating library.
 
-### Example Usage:
+## Example Usage:
 
-**welcome.mustache**
+_welcome.mustache_
 ```HTML
 <div data-tplid="{{tplid}}">
 Hello, <span>{{name}}</span>!
 <button>Toggle</button>
 </div>
 ```
-**welcome.js**
+_welcome.js_
 ```JS
 window.welcome = function($scope, data){
 
@@ -30,7 +30,7 @@ window.welcome = function($scope, data){
    
 };
 ```
-**app.js**
+_app.js_
 ```JS
 $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
     vm.toggle(); //call 'toggle' directly from welcome api
@@ -43,17 +43,17 @@ As you can see, all view logic is held within welcome.js, and all view markup (a
 - Callbacks when view has been rendered, and when viewmodel function (window.welcome, in the example) returns/exits
 - Ability to easily manipulate or tear down views
 
-### Installation
+## Installation
 
 Just grab dist/hmjs.min.js. It includes all dependencies (Mustache, Arrive) **except** for jQuery 1.6+.
 
-### Dependencies
+## Dependencies
 
 - jQuery 1.6+ (**not** included in dist file)
 - Mustache (included in dist)
 - Arrive (included in dist file)
 
-### Documentation
+## Documentation
 
 - API documentation
 - More examples

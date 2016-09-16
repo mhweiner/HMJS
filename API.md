@@ -65,8 +65,8 @@ HM.render('welcome', {name: 'John'}); //returns rendered HTML
 
 ``HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))``
 
-You probably will never use this function, as it is for advanced usage only. It is recommended you use
-the jQuery helper functions instead (see below). Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
+You probably will never use this function directly, for advanced usage only. It is recommended you use
+the jQuery helper functions instead. Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
 any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewModel first,
 and then callback.
 

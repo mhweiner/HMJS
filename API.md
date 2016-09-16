@@ -8,7 +8,7 @@
     <th>Description</th>
 </tr>
 <tr>
-    <td><code>HM.add()</code></td>
+    <td><code>_bool_ HM.add(templates [object], replace [bool] (optional))</code></td>
     <td></td>
 </tr>
 <tr>
@@ -47,23 +47,23 @@ These are meant to be run on a jQuery set of matched elements. For example, $('b
     <th>Description</th>
 </tr>
 <tr>
-    <td><code>$().insertView()</code></td>
+    <td><code>.insertView()</code></td>
     <td></td>
 </tr>
 <tr>
-    <td><code>$().prependView()</code></td>
+    <td><code>.prependView()</code></td>
     <td></td>
 </tr>
 <tr>
-    <td><code>$().appendView()</code></td>
+    <td><code>.appendView()</code></td>
     <td></td>
 </tr>
 <tr>
-    <td><code>$().beforeView()</code></td>
+    <td><code>.beforeView()</code></td>
     <td></td>
 </tr>
 <tr>
-    <td><code>$().afterView()</code></td>
+    <td><code>.afterView()</code></td>
     <td></td>
 </tr>
 </table>

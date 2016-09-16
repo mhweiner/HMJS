@@ -6,7 +6,7 @@
 
 ### .insertView()
 
-``.insertView(template_name [string], data [object], onReady [function])``
+``.insertView(template_name [string], data [object] (optional), onReady [function] (optional))``
 
 Replaces contents of selected objects with rendered template.
 
@@ -19,7 +19,6 @@ $('body').insertView('welcome', {name: "John"}, function(data,vm){
     var $scope = this; //jQuery selector object
     console.log(data); // the same name param. outputs: {name: "John"}
 });
-$('body').insertView('welcome'); //data and onReady are both optional. Fairly boring though...
 ```
 
 ## HM Object

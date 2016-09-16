@@ -2,7 +2,7 @@
 
 **Tip**: If there is any confusion, read the source code, src/hmjs.js. It's easy to read, and has javadoc style function comments! :) Yay!
 
-### jQuery functions
+## jQuery functions
 
 These are meant to be run on a jQuery set of matched elements. For example, $('body').appendView('test');
 

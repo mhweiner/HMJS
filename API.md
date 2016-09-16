@@ -11,22 +11,50 @@
 Adds (or replaces) one or more templates. Templates are parsed for performance. If <code>replace</code>
 is true, than templates with the same name/key are overwritten.
 
-Examples:
+Example:
 
 ```JS
 HM.add({"welcome":"<div>Hi, {{name}}!</div>"});
-HM.add(templates); //add an entire object loaded somewhere else
 ```
 
-### HM.render(name, data)
+### HM.render()
 
 ``HM.render(template_name [string], data [object])``
 
-Returns the rendered template HTML.
+Returns the rendered template HTML. You will probably rarely use this function. It returns M.render() from Mustache
+directly.
 
 Example:
 
-``HM.render('welcome',{name: 'John'});``    
+```JS
+HM.render('welcome', {name: 'John'}); //returns rendered HTML
+```
+
+### HM.clear()
+
+``HM.clear()``
+
+Clears the stored templates.
+
+### HM.exists()
+
+``HM.exists(template_name)``
+
+Returns true if template with key <code>template_name</code> exists.
+
+Example:
+
+```JS
+HM.exists('welcome'); //returns true or false
+```
+
+### HM.getTemplates()
+
+``HM.getTemplates()``
+
+Returns the stored templates object.
+
+### HM.insert
 
 ``HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))``
 
@@ -35,7 +63,7 @@ the jQuery helper functions instead (see below). Renders template and inserts in
 any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewModel first,
 and then callback.
 
-
+See source code for example usage.
 
 ### jQuery functions
 

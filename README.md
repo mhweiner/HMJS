@@ -34,9 +34,11 @@ window.welcome = function($scope, data){
 ```JS
 $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
     vm.toggle(); //call 'toggle' directly from welcome api
-                 //feel free to save vm to local variable to use later!
 });
 ```
-
-
-
+### Simple Example:
+_Using same welcome.mustache file in previous example._
+*app.js*
+```JS
+$('body').insertView('welcome', {name: 'Dave'});
+```

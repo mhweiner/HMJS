@@ -77,7 +77,8 @@ on how this is implemented, and it is left to you. Feel free to bring your own d
 HMJS was originally written to be used as a way to organize and encapsulate view components in a HTML5 mobile app.
 Performance and small filesize were key goals. Mustache is also ubiquitous, [well documented](https://mustache.github.io/mustache.5.html), simple, 'logicless', 
 [highly portable](https://mustache.github.io/) (it's available in many languages), and one of the fastest JS template engines.
-Mustache templates are usually clean and easy-to-read, yet highly flexible (see lambda functions).
+Mustache templates are usually clean and easy-to-read, yet highly flexible (see lambda functions). HMJS is great for 
+use in micro-library frameworks, custom frameworks, or as components within other frameworks.
 
 ## License
 

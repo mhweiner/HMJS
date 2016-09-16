@@ -4,14 +4,26 @@
 
 ## HM Object
 
+### HM.add(templates, replace)
+
 ``HM.add(templates [object], replace [bool] (optional))``
 
 Adds (or replaces) one or more templates. Templates are parsed for performance. If <code>replace</code>
 is true, than templates with the same name/key are overwritten.
 
+Example:
+
+``HM.add({"welcome":"<div>Hi, {{name}}!</div>"});``
+
+### HM.render(name, data)
+
 ``HM.render(template_name [string], data [object])``
 
 Returns the rendered template HTML.
+
+Example:
+
+``HM.render('welcome',{name: 'John'});``
 
 ``HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))``
 

@@ -22,8 +22,8 @@ $('body').insertView('welcome', {name: "John"}, function(data,vm){
 ```
 
 <code>onReady</code> is optional, and accepts a callback. This callback is called with two parameters:
-<code>data</code>, <code>vm</code>. <code>vm</code> is whatever is returned by the ViewModel, if found. Ideally,
-this would be an object, representing the API to that ViewModel instance (if necessary, of course).
+<code>data</code>, <code>vm</code>. <code>vm</code> is whatever is returned by the ViewModel, if found. This
+is usually an object, representing the API to that ViewModel instance (if necessary for this particular view).
 If there is no matching ViewModel found for this template, then
 <code>vm</code> will be <code>undefined</code>. This callback will fire when:
 

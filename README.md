@@ -4,27 +4,33 @@ HM is a JS view component and jQuery plugin for Mustache. Issues callbacks withi
 welcome.mustache
 ```HTML
 <div data-tplid="{{tplid}}">
-Hello, <span>{{noun}}</span>
-<button>Refresh</button>
+Hello, <span>{{name}}</span>
+<button>Leave</button>
 </div>
 ```
 welcome.js
 ```JS
 window.welcome = function($scope, data){
 
-    /**
-     * Randomly select a noun from data.nouns.
-    */
-    function refresh(){
-       var noun = data.nouns[Math.rand()];
+    var status;
+    
+    function toggle(){
+        $scope.html((status ? 'Hello ' : 'Bye ') + data.name + '!');
     }
+    
+    $scope.on('click','button', toggle);
     
     /* return api */
     return {
-      refresh: refresh
+      toggle: toggle
     };
-    
+   
 };
+```
+app.js
+```JS
+HM.setViewModels(window);
+$('body').insertView('welcome', 'Dave');
 ```
 
 

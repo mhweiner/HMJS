@@ -27,3 +27,45 @@ containing your templates. To do this, you can use the **jsttojs** npm module ([
 jsttojs assets/templates/base dist/tmp/base_templates.js -e mustache -n baseTmpl -r -o
 ```
 
+## Setting ViewModels
+
+Using ViewModels is not required to use HMJS, but it is one of the main features. It is basically the same as simply
+using a callback, but this is done automatically for you, if you use a ViewModel.
+
+```JS
+var test1 = function($scope, data){
+
+   my status = false;
+   
+   function toggle(){
+     status = !status;
+   }
+
+   return {
+        toggle: toggle,
+        getStatus: function(){ return status; }
+   };
+}
+
+var viewmodels = {
+  test1: test1
+};
+
+HM.setViewModels(viewmodels);
+```
+
+## Rendering Views
+
+For our purposes, a **_view_** is any rendered template, complete with any logic/ViewModel, if appropriate.
+
+```JS
+$('#mydiv').insertView('test1', {name:'john'}); //simply insert view with some data
+
+$('#mydiv').insertView('test1', {name:'john'}, function(data, vm){
+  console.log(this); //jQuery selector containing test1 node
+  console.log(data); //{name:'john'}
+  console.log(vm); //{toggle: function(){...}, getStatus: function(){...}} //whatever is returned by the viewmodel
+});
+```
+
+ViewModels are called using the **new** keyword, so they are scoped independently (like an instance of a class).

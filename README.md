@@ -1,5 +1,10 @@
 # HMJS
-HMJS is a lightweight view component/encapsulation template rendering library, powered by Mustache. You can think of it as a jQuery plugin for Mustache, but with many added benefits. HMJS can issue callbacks (within new scope), both when the template has rendered, and when your view logic has run. Each view/component can have its own API, so you can keep your components modular and completely isolated. At only 1.2kb gzipped, it's much more lightweight than any other component/templating library.
+HMJS is a lightweight view component/encapsulation template rendering library, powered by Mustache. You can 
+think of it as a jQuery plugin for Mustache, but with many added benefits. HMJS can issue callbacks (within new scope), 
+both when the template has rendered, and when your view logic has run. Each view/component can have its own API, so 
+you can keep your components modular and completely isolated. Emphasis was placed on performance, so it's great for
+HTML5 mobile apps, or rendering where performance is critical. HMJS is built off of Mustache, which is one of the fastest
+rendering engines available for Javascript.
 
 ## Example Usage:
 

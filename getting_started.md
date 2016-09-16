@@ -70,3 +70,8 @@ $('#mydiv').insertView('test1', {name:'john'}, function(data, vm){
 ```
 
 ViewModels are called using the **new** keyword, so they are scoped independently (like an instance of a class).
+
+## See also
+
+- [HMJS API Documentation](API.md)
+- [Introduction](README.md)

@@ -63,7 +63,8 @@ Just grab dist/hmjs.min.js. It includes all dependencies (Mustache, Arrive) **ex
 
 ## Documentation
 
-- [Usage & API](API.md)
+- [Getting Started](getting_started.md)
+- [HMJS API Documentation](API.md)
 
 ## Wait, what is a viewmodel?
 

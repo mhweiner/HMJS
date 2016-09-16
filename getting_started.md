@@ -30,7 +30,7 @@ jsttojs assets/templates/base dist/tmp/base_templates.js -e mustache -n baseTmpl
 ## Setting ViewModels
 
 Using ViewModels is not required to use HMJS, but it is one of the main features. It is basically the same as simply
-using a callback, but this is done automatically for you, if you use a ViewModel.
+using a callback, but it is done automatically for you--this keeps your code clean and more modular.
 
 ```JS
 var test1 = function($scope, data){

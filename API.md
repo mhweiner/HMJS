@@ -1,16 +1,13 @@
 # HMJS Usage & API
 
 <table width="100%">
-<thead>
 <tr>
-    <td>Method</td>
-    <td>Ins/Outs</td>
-    <td>Description</td>
+    <th>Method</th>
+    <th>Ins/Outs</th>
+    <th>Description</th>
 <tr>
-</thead>
-<tbody>
 <tr>
-    <td>`addStuff()`</td>
+    <td>``addStuff()``</td>
     <td>things</td>
     <td>Lorem ipsum dolar sit amet</td>
 </td>

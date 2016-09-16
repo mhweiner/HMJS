@@ -143,7 +143,7 @@ window.HM = (function($, M){
 	//---set up jQuery plugins---//
 
 	/**
-	 * Replaces contents.
+	 * Replaces contents of selected objects with rendered template.
 	 * @param {string} template_name
 	 * @param {object=} data
 	 * @param {function=} onReady

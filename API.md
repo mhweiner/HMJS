@@ -2,6 +2,26 @@
 
 **Tip**: If there is any confusion, read the source code, src/hmjs.js. It's easy to read, and has javadoc style function comments! :) Yay!
 
+### jQuery functions
+
+These are meant to be run on a jQuery set of matched elements. For example, $('body').appendView('test');
+
+### .insertView()
+
+``.insertView(template_name [string], data [object], onReady [function])``
+
+Replaces contents of selected objects with rendered template.
+
+Examples:
+
+```JS
+$('body').insertView('welcome', {name: "John"});
+$('body').insertView('welcome', {name: "John"}, function(data,vm){
+    vm.foo(); //some arbitrary method
+    var $scope = this; //jQuery selector object
+});
+```
+
 ## HM Object
 
 ### HM.add()

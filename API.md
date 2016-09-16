@@ -4,8 +4,6 @@
 
 ## jQuery functions
 
-These are meant to be run on a jQuery set of matched elements. For example, $('body').appendView('test');
-
 ### .insertView()
 
 ``.insertView(template_name [string], data [object], onReady [function])``

@@ -1,4 +1,4 @@
-# HMJS Usage & API
+# HMJS API Documentation
 
 **Tip**: If there is any confusion, read the source code, src/hmjs.js. It's easy to read, and has javadoc style function comments! :) Yay!
 

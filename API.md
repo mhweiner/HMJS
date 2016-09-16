@@ -21,6 +21,13 @@ $('body').insertView('welcome', {name: "John"}, function(data,vm){
 });
 ```
 
+<code>onReady</code> is optional, and accepts a callback. This callback is called with two parameters:
+<code>data</code>, <code>vm</code>. If there is no matching ViewModel found for this template, then
+<code>vm</code> will be <code>undefined</code>. This callback will fire when:
+
+1. The node is ready for manipulation in the DOM
+2. The ViewModel, if found, has returned/exited.
+
 ### .appendView()
 
 ``.insertView(template_name [string], data [object](optional), onReady [function](optional))``

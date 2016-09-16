@@ -17,19 +17,6 @@ Example:
 HM.add({"welcome":"<div>Hi, {{name}}!</div>"});
 ```
 
-### HM.render()
-
-``HM.render(template_name [string], data [object])``
-
-Returns the rendered template HTML. You will probably rarely use this function. It returns M.render() from Mustache
-directly.
-
-Example:
-
-```JS
-HM.render('welcome', {name: 'John'}); //returns rendered HTML
-```
-
 ### HM.clear()
 
 ``HM.clear()``
@@ -38,7 +25,7 @@ Clears the stored templates.
 
 ### HM.exists()
 
-``HM.exists(template_name)``
+``HM.exists(template_name [string])``
 
 Returns true if template with key <code>template_name</code> exists.
 
@@ -53,6 +40,26 @@ HM.exists('welcome'); //returns true or false
 ``HM.getTemplates()``
 
 Returns the stored templates object.
+
+### HM.setViewModels()
+
+``HM.setViewModels(viewmodels [object])``
+
+Sets the viewmodels object to be used. Properties (functions) that match the template name will be instantiated
+with the <code>new</code> keyword when inserted with <code>HM.insert()</code> or any of the jQuery helper functions.
+
+### HM.render()
+
+``HM.render(template_name [string], data [object])``
+
+Returns the rendered template HTML. You will probably rarely use this function. It returns M.render() from Mustache
+directly.
+
+Example:
+
+```JS
+HM.render('welcome', {name: 'John'}); //returns rendered HTML
+```
 
 ### HM.insert
 

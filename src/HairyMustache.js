@@ -107,7 +107,7 @@ window.HM = (function($, M){
 	}
 
 	/**
-	 * Returns the rendred template.
+	 * Returns the rendered template HTML.
 	 * @param template_name
 	 * @param data
 	 * @return {*}

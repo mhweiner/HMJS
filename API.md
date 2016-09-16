@@ -7,59 +7,21 @@ in a way that's easy to read, and has javadoc style function comments.
 
 ``HM.add(templates [object], replace [bool] (optional))``
 
-Adds (or replaces) one or more templates. Templates are parsed for performance. Returns true.
+Adds (or replaces) one or more templates. Templates are parsed for performance. If <code>replace</code>
+is true, than templates with the same name/key are overwritten.
 
-<table width="100%">
-<tr>
-    <th>HM object</th>
-</tr>
-<tr>
-    <td>
-    
-    _bool_ <code>HM.add(templates [object], replace [bool] (optional))</code>
-    
-    Adds (or replaces) one or more templates. Templates are parsed for performance.
-    </td>
-</tr>
-</table>
+``HM.render(template_name [string], data [object])``
 
-<table width="100%">
-<tr>
-    <th>Method</th>
-    <th>Description</th>
-</tr>
-<tr>
-    <td>_bool_<code>HM.add(templates [object], replace [bool] (optional))</code></td>
-    <td>Adds (or replaces) one or more templates. Templates are parsed for performance.</td>
-</tr>
-<tr>
-    <td><code>HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))</code></td>
-    <td>You probably will never use this function, as it is for advanced usage only. It is recommended you use
-    the jQuery helper functions instead (see below). Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
-        any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewModel first,
-        and then callback.</td>
-</tr>
-<tr>
-    <td><code>HM.render()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.clear()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.getTemplates()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.exists()</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>HM.setViewModels()</code></td>
-    <td></td>
-</tr>
-</table>
+Returns the rendered template HTML.
+
+``HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))``
+
+You probably will never use this function, as it is for advanced usage only. It is recommended you use
+the jQuery helper functions instead (see below). Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and
+any available ViewHelper, within the lexical scope of the template and with data. Calls the ViewModel first,
+and then callback.
+
+
 
 ### jQuery functions
 

@@ -1,4 +1,6 @@
-// HairyMustache.js
+// hmjs.js
+// copyright (c) 2016 Marc Weiner <mhweiner234@gmail.com>
+// https://github.com/mhweiner/hmjs
 // Useful templating utility and jQuery plugin for Mustache.js. Requires ArriveJS, MustacheJS and jQuery >= 1.8
 
 window.HM = (function($, M){

@@ -17,6 +17,7 @@ window.welcome = function($scope, data){
     var status;
     
     function toggle(){
+        status = !status;
         $scope.html((status ? 'Hello ' : 'Bye ') + data.name + '!');
     }
     
@@ -31,7 +32,11 @@ window.welcome = function($scope, data){
 ```
 *app.js*
 ```JS
-$('body').insertView('welcome', {name: 'Dave'});
+var welcome;
+$('body').insertView('welcome', {name: 'Dave'}, function($scope, data){
+  welcome = $scope;
+  welcome.toggle();
+});
 ```
 
 

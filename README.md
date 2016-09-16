@@ -1,5 +1,5 @@
-# HM
-HM is a JS view component and jQuery plugin for Mustache. Issues callbacks within new scope, so you can encapsulate your view logic, and have it run when it's ready. Each view/component can have its own API, so you can keep your components modular and completely isolated. At only 1.2kb gzipped, it's much more lightweight than any other component/templating library.
+# HMJS
+HMJS is a lightweight view component/encapsulation template rendering library, powered by Mustache. You can think of it as a jQuery plugin for Mustache, but with many added benefits. HMJS can issue callbacks (within new scope), both when the template has rendered, and when your view logic has run. Each view/component can have its own API, so you can keep your components modular and completely isolated. At only 1.2kb gzipped, it's much more lightweight than any other component/templating library.
 
 ## Example Usage:
 

@@ -6,7 +6,7 @@
 
 ### .insertView()
 
-``.insertView(template_name [string], data [object] (optional), onReady [function] (optional))``
+``.insertView(template_name [string], data [object](optional), onReady [function](optional))``
 
 Replaces contents of selected objects with rendered template.
 
@@ -25,7 +25,7 @@ $('body').insertView('welcome', {name: "John"}, function(data,vm){
 
 ### HM.add()
 
-``HM.add(templates [object], replace [bool] (optional))``
+``HM.add(templates [object], replace [bool](optional))``
 
 Adds (or replaces) one or more templates. Templates are parsed for performance. If <code>replace</code>
 is true, than templates with the same name/key are overwritten.
@@ -82,7 +82,7 @@ HM.render('welcome', {name: 'John'}); //returns rendered HTML
 
 ### HM.insert
 
-``HM.insert($destination [jQuery], template_name [string], data [object] (optional), onReady [function] (optional), insertionMethod [function] (optional))``
+``HM.insert($destination [jQuery], template_name [string], data [object](optional), onReady [function](optional), insertionMethod [function](optional))``
 
 You probably will never use this function directly, for advanced usage only. It is recommended you use
 the jQuery helper functions instead. Renders template and inserts into DOM. Listens for DOM event, and when handled, calls callback and

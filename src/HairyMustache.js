@@ -9,7 +9,7 @@ window.HM = (function($, M){
 		viewmodels = {};
 
 	/**
-	 * Adds (or replaces) one or more templates.
+	 * Adds (or replaces) one or more templates. Templates are parsed for performance.
 	 * @param {object} input_templates
 	 * @param {boolean=} replace
 	 */

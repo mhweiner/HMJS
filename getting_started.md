@@ -40,6 +40,8 @@ var test1 = function($scope, data){
    function toggle(){
      status = !status;
    }
+   
+   console.log('ready!');
 
    return {
         toggle: toggle,
@@ -52,6 +54,8 @@ var viewmodels = {
 };
 
 HM.setViewModels(viewmodels);
+
+$('body').insertView('test1'); //outputs: ready!
 ```
 
 ## Rendering Views

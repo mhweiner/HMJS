@@ -1,5 +1,11 @@
 # HMJS Usage & API
 
+## HM Object
+
+``HM.add(templates [object], replace [bool] (optional))``
+
+Adds (or replaces) one or more templates. Templates are parsed for performance. Returns true.
+
 <table width="100%">
 <tr>
     <th>HM object</th>

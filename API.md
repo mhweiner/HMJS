@@ -17,6 +17,7 @@ $('body').insertView('welcome', {name: "John"});
 $('body').insertView('welcome', {name: "John"}, function(data,vm){
     vm.foo(); //some arbitrary method
     var $scope = this; //jQuery selector object
+    console.log(data); // the same name param. outputs: {name: "John"}
 });
 ```
 

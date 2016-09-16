@@ -64,3 +64,11 @@ Just grab dist/hmjs.min.js. It includes all dependencies (Mustache, Arrive) **ex
 ## Documentation
 
 - [Usage & API](api.md)
+
+## Wait, what is a viewmodel?
+
+There are many definitions for [viewmodel](https://www.infoq.com/articles/View-Model-Definition). For our purposes,
+a **_viewmodel_** is a wrapper or decorator that contains most, if not all of the javascript logic required for the view.
+This could mean event binding, data binding, callbacks, template manipulation, etc. HMJS does not have any opinions
+on how this is implemented, and it is left to you. HMJS is meant to be used in micro-library or home-grown frameworks, or
+as a component within another framework. Feel free to bring your own data-binding library.

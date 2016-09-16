@@ -19,6 +19,7 @@ $('body').insertView('welcome', {name: "John"}, function(data,vm){
     var $scope = this; //jQuery selector object
     console.log(data); // the same name param. outputs: {name: "John"}
 });
+$('body').insertView('welcome'); //data and onReady are both optional. Fairly boring though...
 ```
 
 ## HM Object

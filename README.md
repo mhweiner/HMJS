@@ -3,7 +3,7 @@ HM is a JS view component and jQuery plugin for Mustache. Issues callbacks withi
 
 ### Example Usage:
 
-*welcome.mustache*
+**welcome.mustache**
 ```HTML
 <div data-tplid="{{tplid}}">
 Hello, <span>{{name}}</span>!
@@ -36,10 +36,24 @@ $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
     vm.toggle(); //call 'toggle' directly from welcome api
 });
 ```
-### Simple Example:
-_Using same welcome.mustache file in previous example._
+As you can see, all view logic is held within welcome.js, and all view markup (and some simple Mustache logic) is held within welcome.mustache. HMJS gives you the following benefits, out of the box:
 
-**app.js**
-```JS
-$('body').insertView('welcome', {name: 'Dave'});
-```
+- View logic and markup encapsulation
+- jQuery plugin
+- Callbacks when view has been rendered, and when viewmodel function (window.welcome, in the example) returns/exits
+- Ability to easily manipulate or tear down views
+
+### Installation
+
+Just grab dist/hmjs.min.js. It includes all dependencies (Mustache, Arrive) **except** for jQuery 1.6+.
+
+### Dependencies
+
+- jQuery 1.6+ (**not** included in dist file)
+- Mustache (included in dist)
+- Arrive (included in dist file)
+
+### Documentation
+
+- API documentation
+- More examples

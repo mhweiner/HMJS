@@ -1,8 +1,8 @@
 # HMJS
 HMJS is a simple view component/encapsulation template rendering library, powered by [Mustache](https://github.com/janl/mustache.js). 
 You can think of it as a jQuery plugin for Mustache. HMJS can issue callbacks (within scope of component), 
-when the template has rendered, and when your view logic has run. This easily allows your view components to be kept
-modular, and each view/component can have its own API. Emphasis was placed on performance, so it's great for
+when the template has rendered, and when your view logic (viewmodel) has run. This easily allows your view components to be kept
+modular/encapsulated, and each view/component can have its own API. Emphasis was placed on performance, so it's great for
 HTML5 mobile apps, or rendering where performance is critical.
 
 ## Example Usage:

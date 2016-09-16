@@ -10,7 +10,7 @@ Hello, <span>{{name}}</span>!
 <button>Toggle</button>
 </div>
 ```
-*welcome.js*
+**welcome.js**
 ```JS
 window.welcome = function($scope, data){
 
@@ -30,7 +30,7 @@ window.welcome = function($scope, data){
    
 };
 ```
-*app.js*
+**app.js**
 ```JS
 $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
     vm.toggle(); //call 'toggle' directly from welcome api
@@ -38,7 +38,8 @@ $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
 ```
 ### Simple Example:
 _Using same welcome.mustache file in previous example._
-*app.js*
+
+**app.js**
 ```JS
 $('body').insertView('welcome', {name: 'Dave'});
 ```

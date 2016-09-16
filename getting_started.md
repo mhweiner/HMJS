@@ -62,6 +62,7 @@ For our purposes, a **_view_** is any rendered template, complete with any logic
 $('#mydiv').insertView('test1', {name:'john'}); //simply insert view with some data
 
 $('#mydiv').insertView('test1', {name:'john'}, function(data, vm){
+  //this callback is called when 1) the view has been rendered (ready in DOM), and 2) when the appropriate ViewModel, if it exists, has exited (or returned something)
   console.log(this); //jQuery selector containing test1 node
   console.log(data); //{name:'john'}
   console.log(vm); //{toggle: function(){...}, getStatus: function(){...}} //whatever is returned by the viewmodel

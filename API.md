@@ -5,11 +5,10 @@
     <th>Method</th>
     <th>Ins/Outs</th>
     <th>Description</th>
+</tr>
 <tr>
-<tr>
-    <td>``addStuff()``</td>
+    <td><code>addStuff()</code></td>
     <td>things</td>
     <td>Lorem ipsum dolar sit amet</td>
-</td>
-</tbody>
+</tr>
 </table>

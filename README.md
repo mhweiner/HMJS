@@ -10,19 +10,18 @@ HTML5 mobile apps, or where performance is crucial.
 _welcome.mustache_
 ```HTML
 <div data-tplid="{{tplid}}">
-Hello, <span>{{name}}</span>!
-<button>Toggle</button>
+<button><span>Hello</span>, {{name}}!</button>
 </div>
 ```
 _welcome.js_
 ```JS
 window.welcome = function($scope, data){
 
-    var status;
+    var status = false;
     
     function toggle(){
         status = !status;
-        $scope.html((status ? 'Hello ' : 'Bye ') + data.name + '!');
+        $scope.find('button span').html(status ? 'Bye' : 'Hello');
     }
     
     $scope.on('click', 'button', toggle);
@@ -37,13 +36,14 @@ window.welcome = function($scope, data){
 _app.js_
 ```JS
 $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
-    vm.toggle(); //call 'toggle' directly from welcome api
+    vm.toggle(); //call 'toggle' directly from welcome's api when component is ready
 });
 ```
 
 ## Benefits
 
-- View logic and markup encapsulation
+- Very few depedencies. Comes with everything you need except jQuery.
+- View logic and markup encapsulation (componentization)
 - Callbacks when view has been rendered, and when viewmodel function (window.welcome, in the example) returns/exits
 - Ability to easily manipulate or tear down views
 - jQuery plugin

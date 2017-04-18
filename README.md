@@ -42,14 +42,13 @@ $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
 
 ## Benefits
 
+- Componentize your views!
 - Very few depedencies. Comes with everything you need except jQuery.
-- View logic and markup encapsulation (componentization)
-- Callbacks when view has been rendered, and when viewmodel function (window.welcome, in the example) returns/exits
-- Ability to easily manipulate or tear down views
+- Callbacks when component and DOM node are ready.
+- Ability to easily manipulate or tear down views.
 - jQuery plugin
-- Fast performance
+- Super fast performance
 - Very small file size
-- Node mutation detection (detect when new view component is rendered)
 
 ## Installation
 

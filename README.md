@@ -52,7 +52,7 @@ $('body').insertView('welcome', {name: 'Dave'}, function(data, vm){
 
 ## Installation
 
-Just grab dist/hmjs.min.js. It includes all dependencies (Mustache, Arrive) **except** for jQuery 1.6+.
+Just grab the source file. It includes all dependencies (Mustache, Arrive) **except** for jQuery 1.6+.
 
 ## Dependencies
 
